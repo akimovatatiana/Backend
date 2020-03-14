@@ -1,0 +1,43 @@
+1. 
+a.      Content-Type: text/plain
+	Content-Length: 14
+	Server: nginx/1.2.2
+
+b.      Content-Type: image/png
+	Content-Length: 335525
+	Server: nginx/1.2.2
+
+c.      Content-Type: application/octet-stream
+	Content-Length: 1137202
+	Server: nginx/1.2.2
+2.
+1) 
+	Request URL: http://localhost/lw1/mysql_is_a_database_server.html
+	Status Code: 404 Not Found
+	HTTP: 4xx Client Error
+	Ресурс не найден. Чтобы исправить, необходимо создать файл и разместить его на сервере.
+2)
+	Request URL: http://localhost/lw1/nginx_is_fast_http_server.txt
+	Status Code: 200 OK
+	HTTP: 2xx Success
+	Запрос успешно обработан.
+	Описывает специальное поведение веб сервера.
+3)
+	Request URL: http://localhost/lw1/php_is_a_server_scripting_language.php
+	Status Code: 302 Found
+	HTTP: 3xx Rediction
+	Ресурс отсутствует временно (запрошенный ресурс временно находится под другим URL).
+	Описывает специальное поведение веб сервера.
+4)
+	Request URL: http://localhost/lw1/javascript_is_a_client_side_language.php?how_to_work=hardly
+	Status Code: 400
+	HTTP: 4xx Client Error
+	Плохой запрос от клиента. Чтобы исправить, необходимо изменить запрос на 			http://localhost/lw1/javascript_is_a_client_side_language.php?how_to_work=hard
+	
+3. 
+	Атрибут charset указывает кодировку символов, используемую в документе. Кодировку HTML-страницы нужно указывать для 	того, чтобы веб-браузер мог правильно отображать текст на странице. 	
+Если не указать кодировку, браузер определит 	ее автоматически, по умолчанию будет использован charset ISO-8859-1. Если указать кодировку неверно, то браузер отобразит документ в данной неверной кодировке, 	следовательно, отобразится нечитаемый текст.
+В примере http://localhost/lw1/all_begin_from_http.html отдается нечитаемый текст, потому что файл имеет кодировку utf-8. Чтобы это исправить, необходимо в файле all_begin_from_http.html в теге <meta> указать charset="utf-8": <meta charset="utf-8">.
+
+
+	
