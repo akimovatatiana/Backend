@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckIdentifier", "CheckIdentifier\CheckIdentifier.csproj", "{DD15740B-4F16-4BC6-8767-C0828B4FB30E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckIdentifierTests", "CheckIdentifierTests\CheckIdentifierTests.csproj", "{FAEA79FF-B087-4FEE-9900-C3D17FF9F109}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD15740B-4F16-4BC6-8767-C0828B4FB30E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD15740B-4F16-4BC6-8767-C0828B4FB30E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD15740B-4F16-4BC6-8767-C0828B4FB30E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD15740B-4F16-4BC6-8767-C0828B4FB30E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAEA79FF-B087-4FEE-9900-C3D17FF9F109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAEA79FF-B087-4FEE-9900-C3D17FF9F109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAEA79FF-B087-4FEE-9900-C3D17FF9F109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEA79FF-B087-4FEE-9900-C3D17FF9F109}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DE79FDA-151C-47FC-829E-3538B7F3C3EB}
+	EndGlobalSection
+EndGlobal
