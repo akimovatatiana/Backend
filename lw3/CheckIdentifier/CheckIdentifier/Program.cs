@@ -13,19 +13,11 @@ namespace CheckIdentifier
         public const string NotLetterOrNotDigitMessage = "Identifier must not have a non-letter or non-digit symbol";
         public static bool CheckDigit(char ch)
         {
-            if (!char.IsDigit(ch))
-            {
-                return false;
-            }
-            return true;
+            return ch >= '0' && ch <= '9';
         }
         public static bool CheckLetter(char ch)
         {
-            if (!char.IsLetter(ch))
-            {
-                return false;
-            }
-            return true;
+            return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
         }
         public static string GetIdentifier(string[] args)
         {

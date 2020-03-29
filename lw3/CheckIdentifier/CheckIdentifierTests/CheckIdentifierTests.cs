@@ -94,7 +94,7 @@ namespace CheckIdentifierTests
         [TestMethod]
         public void CheckIdentifierOnSR3_WithRightIdentifier_ShouldReturnTrue()
         {
-            string rightIdentifier = "hello";
+            string rightIdentifier = "Hello25";
             bool result = CheckIdentifier.Program.CheckIdentifierOnSR3(rightIdentifier);
             Assert.AreEqual(true, result);
         }
