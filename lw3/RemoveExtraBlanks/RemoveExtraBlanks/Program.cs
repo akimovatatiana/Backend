@@ -7,6 +7,7 @@ namespace RemoveExtraBlanks
     public class Program
     {
         public const string InvalidArgumentsCount = "Incorrect number of arguments! Usage RemoveExtraBlanks.exe <input.txt> <output.txt>";
+        public const string FailedToOpenFile = "Failed to open file for reading ";
         public static string RemoveExtraBlanks(string text)
         {
             text = text.Trim();
@@ -41,7 +42,7 @@ namespace RemoveExtraBlanks
             string outputFileName = args[1];
             if (!File.Exists(inputFileName))
             {
-                Console.WriteLine("Failed to open file for reading " + inputFileName);
+                Console.WriteLine(FailedToOpenFile + inputFileName);
                 return;
             }
             ReadAndWriteFiles(inputFileName, outputFileName);  
