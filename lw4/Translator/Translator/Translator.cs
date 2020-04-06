@@ -15,8 +15,8 @@ namespace Translator
         }
          Dictionary<string, string> InitDictionary(string fileName)
          {
-            Dictionary<string, string> dictionary = new Dictionary<string, string> { };
-            StreamReader dictionaryFile = new StreamReader(fileName);
+             Dictionary<string, string> dictionary = new Dictionary<string, string> { };
+             StreamReader dictionaryFile = new StreamReader(fileName);
              string line;
              while ((line = dictionaryFile.ReadLine()) != null)
              {
