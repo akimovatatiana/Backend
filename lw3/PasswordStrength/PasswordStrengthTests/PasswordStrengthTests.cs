@@ -107,6 +107,64 @@ namespace PasswordStrengthTests
         }
     }
     [TestClass]
+    public class GetStrengthTests
+    {
+        [TestMethod]
+        public void GetInitialStrength_WithPasswordLength()
+        {
+            int passwordLength = 4;
+            int resultStrength = PasswordStrength.Program.GetInitialStrength(passwordLength);
+            int expectedStrength = 16;
+            Assert.AreEqual(expectedStrength, resultStrength);
+        }
+        [TestMethod]
+        public void GetStrengthForCaseLetters_WithNumberOfUpperLetters()
+        {
+            int passwordLength = 4;
+            int numberOfUpperCase = 2;
+            int resultStrength = PasswordStrength.Program.GetStrengthForCaseLetters(passwordLength, numberOfUpperCase);
+            int expectedStrength = 4;
+            Assert.AreEqual(expectedStrength, resultStrength);
+        }
+        [TestMethod]
+        public void GetStrengthForCaseLetters_WithNumberOfLowerLetters()
+        {
+            int passwordLength = 4;
+            int numberOfLowerCase = 2;
+            int resultStrength = PasswordStrength.Program.GetStrengthForCaseLetters(passwordLength, numberOfLowerCase);
+            int expectedStrength = 4;
+            Assert.AreEqual(expectedStrength, resultStrength);
+        }
+        [TestMethod]
+        public void GetStrengthForDigits_WithDigits()
+        {
+            int numberOfDigits = 4;
+            int resultStrength = PasswordStrength.Program.GetInitialStrength(numberOfDigits);
+            int expectedStrength = 16;
+            Assert.AreEqual(expectedStrength, resultStrength);
+        }
+        [TestMethod]
+        public void GetStrengthForPasswordWithOnlyDigitsOrLetters_WithNoDigits()
+        {
+            int passwordLength = 4;
+            int numberOfDigits = 0;
+            int numberOfUpperCase = 2; 
+            int numberOfLowerCase = 2;
+            int resultStrength = PasswordStrength.Program.GetStrengthForPasswordWithOnlyDigitsOrLetters(passwordLength, numberOfLowerCase, 
+                numberOfUpperCase, numberOfDigits);
+            int expectedStrength = 4;
+            Assert.AreEqual(expectedStrength, resultStrength);
+        }
+        [TestMethod]
+        public void GetStrengthForDuplicates_WithDuplicates()
+        {
+            string password = "hello";
+            int resultStrength = PasswordStrength.Program.GetStrengthForDuplicates(password);
+            int expectedResult = 2;
+            Assert.AreEqual(expectedResult, resultStrength);
+        }
+    }
+    [TestClass]
     public class GetPasswordStrengthTests
     {
         [TestMethod]

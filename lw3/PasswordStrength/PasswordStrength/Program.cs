@@ -69,28 +69,47 @@ namespace PasswordStrength
             }
             return numberOfDuplicates;
         }
-        public static int CalculateStrength(string password, int numberOfDigits, int numberOfLowerCase, int numberOfUpperCase, int numberOfDuplicates)
+        public static int GetInitialStrength(int passwordLength)
+        {
+            return 4 * passwordLength;
+        }
+        public static int GetStrengthForCaseLetters(int passwordLength, int numberOfCase)
+        {
+            return numberOfCase != 0 ? (passwordLength - numberOfCase) * 2 : 0;
+        }
+        public static int GetStrengthForDigits(int numberOfDigits)
+        {
+            return numberOfDigits != 0 ? (4 * numberOfDigits) : 0;
+        }
+        public static int GetStrengthForPasswordWithOnlyDigitsOrLetters(int passwordLength, int numberOfLowerCase, int numberOfUpperCase, int numberOfDigits)
+        {
+            if ((numberOfLowerCase == 0 && numberOfUpperCase == 0) || numberOfDigits == 0)
+            {
+                return passwordLength;
+            }
+            return 0;
+        }
+        public static int GetStrengthForDuplicates(string password)
+        {
+            int numberOfDuplicates = CheckDuplicates(password);
+            return numberOfDuplicates;
+        }
+        public static int CalculateStrength(string password, int numberOfDigits, int numberOfLowerCase, int numberOfUpperCase)
         {
             int strength = 0;
             int passwordLength = password.Length;
-            strength += 4 * passwordLength;
-            if (numberOfDigits != 0)
-            {
-                strength += 4 * numberOfDigits;
-            }
-            if (numberOfUpperCase != 0)
-            {
-                strength += (passwordLength - numberOfUpperCase) * 2;
-            }
-            if (numberOfLowerCase != 0)
-            {
-                strength += (passwordLength - numberOfLowerCase) * 2;
-            }
-            if ((numberOfLowerCase == 0 && numberOfUpperCase == 0) || numberOfDigits == 0)
-            {
-                strength -= passwordLength;
-            }
-            strength -= numberOfDuplicates;
+            
+            strength += GetInitialStrength(passwordLength);
+
+            strength += GetStrengthForDigits(numberOfDigits);
+
+            strength += GetStrengthForCaseLetters(passwordLength, numberOfUpperCase);
+            
+            strength += GetStrengthForCaseLetters(passwordLength, numberOfLowerCase);
+
+            strength -= GetStrengthForPasswordWithOnlyDigitsOrLetters(passwordLength, numberOfLowerCase, numberOfUpperCase, numberOfDigits);
+            
+            strength -= GetStrengthForDuplicates(password);
 
             return strength;
         }
@@ -99,7 +118,7 @@ namespace PasswordStrength
             int numberOfDigits = 0;
             int numberOfLowerCase = 0;
             int numberOfUpperCase = 0;
-            int numberOfDuplicates = CheckDuplicates(password);
+           
             for (int i = 0; i < password.Length; i++)
             {
                 if (CheckDigit(password[i]))
@@ -115,7 +134,7 @@ namespace PasswordStrength
                     numberOfUpperCase++;
                 }
             }
-            int strength = CalculateStrength(password, numberOfDigits, numberOfLowerCase, numberOfUpperCase, numberOfDuplicates);
+            int strength = CalculateStrength(password, numberOfDigits, numberOfLowerCase, numberOfUpperCase);
             return strength;
         }
         public static void Main(string[] args)
