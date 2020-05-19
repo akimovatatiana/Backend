@@ -36,12 +36,12 @@ VALUES
 
 --  1) Выбрать всех пользователей из таблицы users, у которых ВСЕ записи в таблице orders 
 -- имеют status = 0.
-SELECT 
-	users.name
-FROM users
-LEFT JOIN orders ON users.users_id = orders.users_id
-GROUP BY orders.users_id
-HAVING orders.status = 0;
+SELECT users.name 
+FROM users 
+EXCEPT
+SELECT users.name  FROM users
+	LEFT JOIN orders ON users.users_id = orders.users_id 
+WHERE orders.status <> 0;
 
 -- 2) Выбрать всех пользователей из таблицы users, у которых больше 5 записей
 -- в таблице orders имеют status = 1.
